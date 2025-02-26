@@ -1,4 +1,4 @@
-const endpoint = "https://api-links-nine.vercel.app";
+const endpoint = "https://api-links-pied.vercel.app";
 const loading = document.querySelector(".spinner-border");
 loading.style.display = "none";
 
