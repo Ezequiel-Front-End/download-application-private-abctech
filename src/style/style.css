@@ -1,0 +1,64 @@
+* {
+    height: auto;
+    width: 100%;
+}
+
+:root {
+    --bg-color: #fafafa;
+}
+
+.container-content {
+    height: 80vh;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.container-content label {
+    font-size: 10pt;
+}
+
+.container-content input {
+    height: auto;
+    width: 100%;
+    box-shadow: none;
+    outline: none;
+    font-size: 10pt;
+}
+
+.container-content select {
+    font-size: 10pt;
+} 
+
+.container-content .btn-gerar-link {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+}
+
+.container-content .btn-download {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+}
+
+.container-content .btn-gerar-link .spinner-border {
+    height: 24px;
+    width: 24px;
+}
+
+.link-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.copy-message {
+    margin-top: 10px;
+    color: green;
+    display: none;
+}
