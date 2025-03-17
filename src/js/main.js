@@ -40,7 +40,7 @@ const alertConfirDownload = () => {
     Swal.fire({
         title: "Atenção! 🚨",
         text: "Assim que você for redirecionado, o download do aplicativo será iniciado automaticamente e o link será excluído.",
-        icon: "info",
+        icon: "",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
