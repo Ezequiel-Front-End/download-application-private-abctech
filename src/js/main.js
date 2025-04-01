@@ -65,6 +65,15 @@ appSelect.addEventListener('change', (event) => {
         imgLogo.src = dto[1].image;
         
     }
+
+    if (appLabel == "app3") {
+        btn.classList.remove("disabled");
+
+        appName.innerHTML = `${dto[0].nameApp}`;
+        descriptionApp.innerHTML = `${dto[0].description}`;
+        imgLogo.src = dto[0].image;
+        
+    }
 });
 
 const alertSuccess = (appName) => {
@@ -83,6 +92,17 @@ const alertSuccess = (appName) => {
     }
 
     if (appName == "app2") {
+        setTimeout(() => {
+            Swal.fire({
+                title: "Tudo certo! 🥳",
+                icon: "success",
+                draggable: true
+            });
+            activeLoading(false);
+        }, 1000);
+    }
+
+    if (appName == "app3") {
         setTimeout(() => {
             Swal.fire({
                 title: "Tudo certo! 🥳",
@@ -197,6 +217,11 @@ function generateLink() {
         return;
     }
 
+    if (app == "app3") {
+        alertConfirDownload("app3");
+        return;
+    }
+
 
     // Exibe a área do link gerado
     document.getElementById("generatedLink").value = generatedUrl;
@@ -213,12 +238,22 @@ function downloadFile(appName){
 
     if (appName == "app2") {
         const link = document.createElement('a'); 
-        link.href = 'src/assets/apk/app-release.apk'; 
+        link.href = 'src/assets/apk/jarvis_gestao_de_obras.apk'; 
         link.download = 'Jarvis-Gestão-de-Obras.apk'; 
         link.click(); 
 
         alertSuccess(appName);
     }
+
+    if (appName == "app3") {
+        const link = document.createElement('a'); 
+        link.href = 'src/assets/apk/constata_android.apk'; 
+        link.download = 'Constata-apontamento-digital.apk'; 
+        link.click(); 
+
+        alertSuccess(appName);
+    }
+
     
 };
 
