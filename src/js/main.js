@@ -88,7 +88,7 @@ const gerarLink = async (appName) => {
             // Loop para verificar os links
             for (let element of objLinks) {
                 if (element[1] === "FALSE") {
-                    console.log("Esse link está liberado:", element);
+                    // console.log("Esse link está liberado:", element);
                     // Quando encontrar o primeiro link liberado, saia do loop
                     document.getElementById("generatedLink").value = element[0];  // Aqui você define o link gerado
                     break;  // Para o loop assim que o primeiro link liberado for encontrado
