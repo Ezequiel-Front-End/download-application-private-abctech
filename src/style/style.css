@@ -13,6 +13,17 @@
     margin-top: 20px;
 }
 
+.navbar {
+    height: 6rem;
+    width: 100%;
+}
+
+#logo {
+    height: auto;
+    width: 300px;
+}
+
+
 .container-content label {
     font-size: 10pt;
 }
@@ -61,4 +72,41 @@
     margin-top: 10px;
     color: green;
     display: none;
+}
+
+.container-select-application {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* background: blue; */
+}
+
+.container-select-application #btn-view-application {
+    height: auto;
+    width: 200px;
+}
+
+.container-select-application #app {
+    height: auto;
+    width: 100%;
+}
+
+.container-select-application .info-1{
+    height: auto;
+    width: 300%;
+}
+
+.container-select-application .info-2 {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#img-logo {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 1rem;
 }

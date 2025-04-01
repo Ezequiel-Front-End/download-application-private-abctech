@@ -4,6 +4,11 @@ loading.style.display = "none";
 
 const textButton = document.querySelector(".textButton");
 
+const dto = [
+    { id: 1, nameApp: "Constata - Apontamento Digital", image: "src/assets/images/constata.jpg", description: "Constata - Apontamento Digital é um aplicativo para gestão de obras e funções na construção civil. Ele permite registrar e monitorar tarefas, prazos e progresso de forma digital e eficiente. Com o Constata, equipes podem otimizar a execução das obras, garantindo maior controle e agilidade no processo. Ideal para engenheiros e gestores." },
+    { id: 2, nameApp: "Jarvis - Gestão de Obras", image: "src/assets/images/icone.png", description: "Jarvis - Gestão de Obras, da ABC Technology Group, é uma solução digital para controlar prazos, orçamentos, equipes e materiais de obras. Oferece monitoramento em tempo real, otimizando recursos e facilitando a gestão de projetos na construção civil." }
+]
+
 const activeLoading = (boolean) => {
     if (boolean == true) {
         loading.style.display = "block";
@@ -21,6 +26,46 @@ const alertFieldNull = () => {
         icon: "error"
     });
 };
+
+const alertFieldNullApplication = () => {
+    Swal.fire({
+        title: "Ops... 😕",
+        text: "Você não escolheu nenhum aplicativo!",
+        icon: "error"
+    });
+};
+
+const appSelect = document.getElementById('app');
+
+appSelect.addEventListener('change', (event) => {
+    let btn = document.getElementById("btn-view-application");
+    let appName = document.querySelector(".appName");
+    let descriptionApp = document.querySelector(".descriptionApp");
+    let imgLogo = document.getElementById("img-logo");
+    let appLabel = event.target.value;
+
+    if (appLabel == "") {
+        btn.classList.add("disabled");
+    }
+
+    if (appLabel == "app1") {
+        btn.classList.remove("disabled");
+
+        appName.innerHTML = `${dto[0].nameApp}`;
+        descriptionApp.innerHTML = `${dto[0].description}`;
+        imgLogo.src = dto[0].image;
+        
+    }
+
+    if (appLabel == "app2") {
+        btn.classList.remove("disabled");
+
+        appName.innerHTML = `${dto[1].nameApp}`;
+        descriptionApp.innerHTML = `${dto[1].description}`;
+        imgLogo.src = dto[1].image;
+        
+    }
+});
 
 const alertSuccess = (appName) => {
     activeLoading(true);
@@ -176,6 +221,8 @@ function downloadFile(appName){
     }
     
 };
+
+
 
 
 
