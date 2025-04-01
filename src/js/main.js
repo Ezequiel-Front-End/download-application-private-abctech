@@ -142,13 +142,16 @@ function generateLink() {
         return;
     }
 
+    if (app == "app1") {
+        gerarLink();
+        return;
+    }
+
     if (app == "app2") {
         alertConfirDownload("app2");
         return;
     }
 
-    // Gerando o link 
-    gerarLink();
 
     // Exibe a área do link gerado
     document.getElementById("generatedLink").value = generatedUrl;
