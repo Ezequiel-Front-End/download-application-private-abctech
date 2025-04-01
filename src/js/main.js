@@ -83,7 +83,7 @@ const gerarLink = async (appName) => {
 
             let objLinks = data.response;
 
-            console.log(objLinks);
+            // console.log(objLinks);
 
             // Loop para verificar os links
             for (let element of objLinks) {
@@ -93,7 +93,7 @@ const gerarLink = async (appName) => {
                     document.getElementById("generatedLink").value = element[0];  // Aqui você define o link gerado
                     break;  // Para o loop assim que o primeiro link liberado for encontrado
                 } else {
-                    console.log("Esse link não está liberado:", element);
+                    // console.log("Esse link não está liberado:", element);
                 }
             }
         })
@@ -110,7 +110,7 @@ const updateLink = (link, status, name) => {
         username: name  // O novo nome
       };
 
-      console.log(dataToSend);
+    //   console.log(dataToSend);
       
       fetch(`${endpoint}/updateLinkStatus`, {
         method: 'POST',
@@ -121,7 +121,7 @@ const updateLink = (link, status, name) => {
       })
         .then(response => response.json())
         .then(data => {
-          console.log('Resposta da API:', data);
+        //   console.log('Resposta da API:', data);
         })
         .catch(error => {
           console.error('Erro ao enviar dados:', error);
