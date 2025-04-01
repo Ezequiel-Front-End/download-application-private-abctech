@@ -22,24 +22,39 @@ const alertFieldNull = () => {
     });
 };
 
-const alertSuccess = () => {
+const alertSuccess = (appName) => {
     activeLoading(true);
 
-    setTimeout(() => {
-        Swal.fire({
-            title: "Tudo certo! 🥳",
-            icon: "success",
-            draggable: true
-        });
-        activeLoading(false);
-        document.querySelector(".link-container").style.display = "block";
-    }, 1000);
+    if (appName == "app1") {
+        setTimeout(() => {
+            Swal.fire({
+                title: "Tudo certo! 🥳",
+                icon: "success",
+                draggable: true
+            });
+            activeLoading(false);
+            document.querySelector(".link-container").style.display = "block";
+        }, 1000);
+    }
+
+    if (appName == "app2") {
+        setTimeout(() => {
+            Swal.fire({
+                title: "Tudo certo! 🥳",
+                icon: "success",
+                draggable: true
+            });
+            activeLoading(false);
+        }, 1000);
+    }
+
+    
 };
 
-const alertConfirDownload = () => {
+const alertConfirDownload = (appName) => {
     Swal.fire({
         title: "Atenção! 🚨",
-        text: "Assim que você for redirecionado, o download do aplicativo será iniciado automaticamente e o link será excluído.",
+        text: "Assim que você confirmar, o download do aplicativo será iniciado automaticamente.",
         icon: "",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -48,13 +63,12 @@ const alertConfirDownload = () => {
         cancelButtonText: "Cancelar"
       }).then((result) => {
         if (result.isConfirmed) {
-            downloadFile();
+            downloadFile(appName);
         }
       });
 }
 
 const gerarLink = async () => {
-    console.log('entrou aqui');
 
     // Fazendo uma requisição GET para a API
     await fetch(`${endpoint}/getLinks`)
@@ -128,6 +142,11 @@ function generateLink() {
         return;
     }
 
+    if (app == "app2") {
+        alertConfirDownload("app2");
+        return;
+    }
+
     // Gerando o link 
     gerarLink();
 
@@ -135,11 +154,24 @@ function generateLink() {
     document.getElementById("generatedLink").value = generatedUrl;
 };
 
-function downloadFile(){
-    let link = document.getElementById("generatedLink").value;
-    let status = "TRUE";
-    let name = document.getElementById("name").value;
-    updateLink(link, status, name);
+function downloadFile(appName){
+
+    if(appName == "app1") {
+        let link = document.getElementById("generatedLink").value;
+        let status = "TRUE";
+        let name = document.getElementById("name").value;
+        updateLink(link, status, name);
+    }
+
+    if (appName == "app2") {
+        const link = document.createElement('a'); 
+        link.href = 'src/assets/apk/app-release.apk'; 
+        link.download = 'Jarvis-Gestão-de-Obras.apk'; 
+        link.click(); 
+
+        alertSuccess(appName);
+    }
+    
 };
 
 
