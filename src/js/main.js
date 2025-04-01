@@ -143,7 +143,7 @@ function generateLink() {
     }
 
     if (app == "app1") {
-        gerarLink(name);
+        gerarLink("app1");
         return;
     }
 
