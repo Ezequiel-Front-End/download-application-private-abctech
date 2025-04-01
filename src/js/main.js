@@ -68,7 +68,7 @@ const alertConfirDownload = (appName) => {
       });
 }
 
-const gerarLink = async () => {
+const gerarLink = async (appName) => {
 
     // Fazendo uma requisição GET para a API
     await fetch(`${endpoint}/getLinks`)
@@ -79,7 +79,7 @@ const gerarLink = async () => {
             return response.json();
         })
         .then(data => {
-            alertSuccess();
+            alertSuccess(appName);
 
             let objLinks = data.response;
 
@@ -143,7 +143,7 @@ function generateLink() {
     }
 
     if (app == "app1") {
-        gerarLink();
+        gerarLink(name);
         return;
     }
 
